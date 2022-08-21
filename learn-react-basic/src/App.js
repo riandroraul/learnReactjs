@@ -5,6 +5,7 @@ import AboutComp from "./Components/Function/AboutComp";
 import WrapCard from "./Components/Function/WrapCard";
 import DetailComp from "./Components/Function/DetailComp";
 import ListUser from "./Components/Class/ListUser";
+import ProductList from "./Components/Class/ProductList";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/card" element={<WrapCard />}></Route>
         <Route path="/detail/:id" element={<DetailComp />}></Route>
         <Route path="/user" element={<ListUser />}></Route>
+        <Route path="/products" element={<ProductList />}></Route>
       </Routes>
     </BrowserRouter>
   );

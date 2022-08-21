@@ -48,6 +48,15 @@ const NavbarComp = () => {
                 List User
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link text-light"
+                aria-current="page"
+                to="/products"
+              >
+                List Product
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
