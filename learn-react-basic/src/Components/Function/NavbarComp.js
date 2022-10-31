@@ -57,6 +57,15 @@ const NavbarComp = () => {
                 List Product
               </Link>
             </li>
+            <li className="nav-item">
+              <Link
+                className="nav-link text-light"
+                aria-current="page"
+                to="/compInherit"
+              >
+                Comp Inherit
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
