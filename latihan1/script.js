@@ -1,4 +1,4 @@
-const root = document.querySelector('#root');
+const root = document.querySelector("#root");
 // const element = React.createElement('h1', {
 //     children: 'Hello from react',
 //     className: 'test',
@@ -29,7 +29,7 @@ const root = document.querySelector('#root');
 // const date = new Date();
 // let month = months[date.getMonth()];
 // const element = (
-//     <div> 
+//     <div>
 //         <ul>
 //             <li>{sayHello('Ignas', 25)}</li>
 //             <li>sekarang bulan {month}</li>
@@ -56,37 +56,45 @@ const root = document.querySelector('#root');
 //   </>
 // );
 
-// function tick (){
-
-//   const element = (
-//     <div>
-//       <h1>Jam sekarang</h1>
-//       <h3 style={{
-//         color: 'red',
-//         fontSize: '20px'
-//       }}>{new Date().toLocaleTimeString()} </h3>
-//     </div>
-// );
-
-// ReactDOM.render(element, root)
-// }
-
-// setInterval( () =>{
-//   tick();
-// },1000)
-
-const App = () => {
-
-  const [count, setCount] = React.useState(0);
-  // let count = state[0];
-  // const updateCount = state[1];
-  return (
+function tick() {
+  const element = (
     <div>
-      <button onClick={() => setCount(count - 1)}>-</button>
-        {count}
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <h1> Jam sekarang </h1>
+      <h3
+        style={{
+          color: "red",
+          fontSize: "20px",
+        }}
+      >
+        {" "}
+        {new Date().toLocaleTimeString()}
+      </h3>
     </div>
   );
+
+  ReactDOM.render(element, root);
 }
 
-ReactDOM.render(<App/>, root);
+setInterval(() => {
+  tick();
+}, 1000);
+
+// const App = () => {
+
+//     const [count, setCount] = React.useState(0);
+//     // let count = state[0];
+//     // const updateCount = state[1];
+//     return (
+//     <div>
+//         <button onClick = {
+//             () => setCount(count - 1)
+//         }> - </button> { count }
+//         <button onClick = {
+//             () => setCount(count + 1)
+//         } > + </button>
+//         <tick/>
+//     </div >
+//     );
+// }
+
+ReactDOM.render(<App />, root);
