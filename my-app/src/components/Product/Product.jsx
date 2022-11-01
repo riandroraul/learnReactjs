@@ -2,10 +2,25 @@ import React, { Component, Fragment } from 'react'
 import keyboard from '../../Assets/img/Product/keyboard.jpg'
 import logo from '../../Assets/img/Product/Logo.jpg'
 import '../../Assets/css/product.css'
-import { faS, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import CardProduct from './CardProduct'
 
 class Product extends Component {
+
+  state = {
+    order: 4
+  }
+
+  btnPlus = () => {
+    this.setState({order: this.state.order + 1})
+  }
+
+  btnMinus = () => {
+    if(this.state.order > 0){
+      this.setState({order: this.state.order - 1})
+    }
+  }
   render() {
     return (
       <Fragment>
@@ -15,21 +30,10 @@ class Product extends Component {
           </div>
           <div className="trolley">
              <FontAwesomeIcon icon={faShoppingCart} />
-            <div className="count">3</div>
+            <div className="count">{this.state.order}</div>
           </div>
         </div>
-      <div className='card'>
-        <div className="img-thumb-prod">
-          <img src={keyboard} alt="" />
-        </div>
-        <p className="product-title">Keyboard Gaming</p>
-        <p className="product-price">Rp. 30.000</p>
-        <div className="counter">
-          <button className="minus">-</button>
-          <input type="text" value={3} />
-          <button className="plus">+</button>
-        </div>
-      </div>
+        <CardProduct keyboard={keyboard} order={this.state.order} />
       </Fragment>
     )
   }
