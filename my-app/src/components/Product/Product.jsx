@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import keyboard from '../../Assets/img/Product/keyboard.jpg'
 import logo from '../../Assets/img/Product/Logo.jpg'
 import '../../Assets/css/product.css'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
@@ -9,18 +8,16 @@ import CardProduct from './CardProduct'
 class Product extends Component {
 
   state = {
-    order: 4
+    order: 4,
+    name: 'rian'
   }
 
-  btnPlus = () => {
-    this.setState({order: this.state.order + 1})
+  handleCounterChange = (newValue) => {
+    this.setState({
+      order: newValue
+    })
   }
 
-  btnMinus = () => {
-    if(this.state.order > 0){
-      this.setState({order: this.state.order - 1})
-    }
-  }
   render() {
     return (
       <Fragment>
@@ -33,7 +30,7 @@ class Product extends Component {
             <div className="count">{this.state.order}</div>
           </div>
         </div>
-        <CardProduct keyboard={keyboard} order={this.state.order} />
+        <CardProduct onCounterChange={(value) => this.handleCounterChange(value)} order={this.state.order} />
       </Fragment>
     )
   }
