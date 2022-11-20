@@ -56,9 +56,20 @@
   margin-top: 18px;
 }
 
-.btn-remove:hover {
+.btn-remove:hover, .btn-update:hover {
   cursor: pointer;
 }
+
+.content .btn-update {
+  padding: 12px 18px;
+  background: #00c7118f;
+  color: white;
+  border-radius: 4px;
+  outline: none;
+  margin-top: 18px;
+  margin-right: 5px;
+}
+
 
 .form-add-post {
   box-shadow: 0px 0px 16px rgba(0,0,0,0.5);
