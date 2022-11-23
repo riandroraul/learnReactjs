@@ -1,35 +1,20 @@
-import React, { Fragment } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import BlogPost from "../BlogPost";
-import Product from "../Product/Product";
-import YoutubeWrapper from "../Youtube";
-
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <BlogPost />,
-    },
-    {
-      path: "/youtube",
-      element: <YoutubeWrapper />,
-    },
-    {
-      path: "/product",
-      element: <Product />,
-    },
-  ]
-  // createRoutesFromElements(
-  //   <Route path="/youtube" element={<YoutubeWrapper />} />
-  // )
-);
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import YoutubeWrapper from "../../pages/Youtube";
+import Product from "../../pages/Product/Product";
+import BlogPost from "../../pages/BlogPost";
+import Navbar from "../Navbar";
 
 const Home = () => {
   return (
-    <Fragment>
-      <RouterProvider router={router} />
-    </Fragment>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<BlogPost />} />
+        <Route path="/youtube" element={<YoutubeWrapper />} />
+        <Route path="/product" element={<Product />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
