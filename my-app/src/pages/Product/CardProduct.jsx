@@ -36,7 +36,7 @@ class CardProduct extends Component {
           <button className="minus" onClick={this.btnMinus}>
             -
           </button>
-          <input type="text" value={this.state.order} />
+          <input type="text" readOnly={true} value={this.state.order} />
           <button className="plus" onClick={this.btnPlus}>
             +
           </button>
