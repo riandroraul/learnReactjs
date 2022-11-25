@@ -1,22 +1,21 @@
-import React, { Component, Fragment } from 'react'
-import logo from '../../Assets/img/Product/Logo.jpg'
-import '../../Assets/css/product.css'
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import CardProduct from './CardProduct'
+import React, { Component, Fragment } from "react";
+import logo from "../../Assets/img/Product/Logo.jpg";
+import "../../Assets/css/product.css";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import CardProduct from "./CardProduct";
 
 class Product extends Component {
-
   state = {
     order: 4,
-    name: 'rian'
-  }
+    name: "rian",
+  };
 
   handleCounterChange = (newValue) => {
     this.setState({
-      order: newValue
-    })
-  }
+      order: newValue,
+    });
+  };
 
   render() {
     return (
@@ -26,13 +25,16 @@ class Product extends Component {
             <img src={logo} alt="" />
           </div>
           <div className="trolley">
-             <FontAwesomeIcon icon={faShoppingCart} />
+            <FontAwesomeIcon icon={faShoppingCart} />
             <div className="count">{this.state.order}</div>
           </div>
         </div>
-        <CardProduct onCounterChange={(value) => this.handleCounterChange(value)} order={this.state.order} />
+        <CardProduct
+          onCounterChange={(value) => this.handleCounterChange(value)}
+          order={this.state.order}
+        />
       </Fragment>
-    )
+    );
   }
 }
 

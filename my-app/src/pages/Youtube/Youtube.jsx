@@ -2,6 +2,7 @@ import React from "react";
 import "../../Assets/css/youtube.css";
 
 const Youtube = (props) => {
+  console.log(props);
   return (
     <div className="youtube-wrapper">
       <div className="img-thumb">

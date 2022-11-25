@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Post = ({ data, image, remove, update, goDetail }) => {
+const Post = ({ data, image, remove, update }) => {
   // console.log(props);
 
   const navigate = useNavigate();
