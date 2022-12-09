@@ -16,10 +16,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         age: state.age + 1,
       };
-      break;
+    case "ADD_VALUE":
+      return {
+        ...state,
+        value: state.value + 5,
+      };
     default:
       return state;
-      break;
   }
 };
 
@@ -29,6 +32,7 @@ console.log(store.getState());
 
 // dispatching action
 store.dispatch({ type: "ADD_AGE" });
+store.dispatch({ type: "ADD_VALUE" });
 console.log(store.getState());
 
 // subscription
