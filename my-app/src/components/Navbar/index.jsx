@@ -8,6 +8,7 @@ const Navbar = () => {
         <Link to={"/"}>Home</Link>
         <Link to={"youtube"}>Youtube</Link>
         <Link to={"product"}>Product</Link>
+        <Link to={"lifecycle"}>LifeCycleComp</Link>
       </div>
     </Fragment>
   );

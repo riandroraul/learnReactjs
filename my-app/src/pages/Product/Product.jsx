@@ -4,18 +4,19 @@ import "../../Assets/css/product.css";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CardProduct from "./CardProduct";
+// import { connect } from "react-redux";
 
 class Product extends Component {
-  state = {
-    order: 4,
-    name: "rian",
-  };
+  // state = {
+  //   order: 4,
+  //   name: "rian",
+  // };
 
-  handleCounterChange = (newValue) => {
-    this.setState({
-      order: newValue,
-    });
-  };
+  // handleCounterChange = (newValue) => {
+  //   this.setState({
+  //     order: newValue,
+  //   });
+  // };
 
   render() {
     return (
@@ -26,16 +27,20 @@ class Product extends Component {
           </div>
           <div className="trolley">
             <FontAwesomeIcon icon={faShoppingCart} />
-            <div className="count">{this.state.order}</div>
+            <div className="count">{0}</div>
           </div>
         </div>
-        <CardProduct
-          onCounterChange={(value) => this.handleCounterChange(value)}
-          order={this.state.order}
-        />
+        <CardProduct />
       </Fragment>
     );
   }
 }
 
+// const mapStateToProps = (state) => {
+//   return {
+//     order: state.totalOrder,
+//   };
+// };
+
+// export default connect(mapStateToProps)(Product);
 export default Product;
