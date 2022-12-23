@@ -13,8 +13,15 @@ const Provider = RootContext.Provider;
 
 class Home extends Component {
   state = {
-    totalOrder: 0,
+    totalOrder: 2,
   };
+
+  dispatch = () => {
+    this.setState({
+      totalOrder: 5,
+    });
+  };
+
   render() {
     return (
       <BrowserRouter>

@@ -4,6 +4,7 @@ import "../../Assets/css/product.css";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import CardProduct from "./CardProduct";
+import { RootContext } from "../../components/Home/Home";
 // import { connect } from "react-redux";
 
 class Product extends Component {
@@ -20,18 +21,24 @@ class Product extends Component {
 
   render() {
     return (
-      <Fragment>
-        <div className="header">
-          <div className="logo">
-            <img src={logo} alt="" />
-          </div>
-          <div className="trolley">
-            <FontAwesomeIcon icon={faShoppingCart} />
-            <div className="count">{0}</div>
-          </div>
-        </div>
-        <CardProduct />
-      </Fragment>
+      <RootContext.Consumer>
+        {(value) => {
+          return (
+            <Fragment>
+              <div className="header">
+                <div className="logo">
+                  <img src={logo} alt="" />
+                </div>
+                <div className="trolley">
+                  <FontAwesomeIcon icon={faShoppingCart} />
+                  <div className="count">{value.totalOrder}</div>
+                </div>
+              </div>
+              <CardProduct />
+            </Fragment>
+          );
+        }}
+      </RootContext.Consumer>
     );
   }
 }
