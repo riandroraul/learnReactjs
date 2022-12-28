@@ -1,5 +1,6 @@
+// import { type } from "@testing-library/user-event/dist/type";
 import React, { Component } from "react";
-import { RootContext } from "../../components/Home/Home";
+import { GlobalConsumer } from "../../context/context";
 // import { connect } from "react-redux";
 // import actionType from "../../redux/reducer/globalActionType";
 
@@ -23,24 +24,28 @@ class Counter extends Component {
   // };
 
   render() {
-    console.log(RootContext);
+    // console.log(RootContext);
+    // console.log(this.props);
     return (
-      <RootContext.Consumer>
-        {(value) => {
-          console.log(value);
-          return (
-            <div className="counter">
-              <button className="minus" onClick={() => null}>
-                -
-              </button>
-              <input type="text" readOnly={true} value={value.totalOrder} />
-              <button className="plus" onClick={() => null}>
-                +
-              </button>
-            </div>
-          );
-        }}
-      </RootContext.Consumer>
+      <div className="counter">
+        <button
+          className="minus"
+          onClick={() => this.props.dispatch({ type: "MINUS_ORDER" })}
+        >
+          -
+        </button>
+        <input
+          type="text"
+          readOnly={true}
+          value={this.props.state.totalOrder}
+        />
+        <button
+          className="plus"
+          onClick={() => this.props.dispatch({ type: "PLUS_ORDER" })}
+        >
+          +
+        </button>
+      </div>
     );
   }
 }
@@ -59,4 +64,4 @@ class Counter extends Component {
 // };
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-export default Counter;
+export default GlobalConsumer(Counter);
