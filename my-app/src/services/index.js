@@ -13,4 +13,13 @@ const Get = (path) => {
       }
     );
   });
+  return promise;
 };
+
+const getBlogPosts = () => Get("posts?_sort=id&_order=desc");
+
+const API = {
+  getBlogPosts,
+};
+
+export default API;

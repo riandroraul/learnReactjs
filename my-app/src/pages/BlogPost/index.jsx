@@ -3,6 +3,7 @@ import React, { Component, Fragment } from "react";
 import "../../Assets/css/blogpost.css";
 import Post from "./Post";
 import "../../Assets/css/navigation.css";
+import API from "../../services";
 
 class BlogPost extends Component {
   state = {
@@ -23,13 +24,11 @@ class BlogPost extends Component {
   };
 
   getAllPosts = () => {
-    axios
-      .get("http://localhost:3004/posts?_sort=id&_order=desc")
-      .then((res) => {
-        this.setState({
-          posts: res.data,
-        });
+    API.getBlogPosts().then((result) => {
+      this.setState({
+        posts: result,
       });
+    });
   };
 
   handleInputChange = (event) => {
