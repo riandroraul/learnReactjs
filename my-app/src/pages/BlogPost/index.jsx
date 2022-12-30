@@ -15,6 +15,7 @@ class BlogPost extends Component {
       body: "",
     },
     isUpdate: false,
+    comments: [],
   };
 
   handleDelete = (data) => {
@@ -24,9 +25,14 @@ class BlogPost extends Component {
   };
 
   getAllPosts = () => {
-    API.getBlogPosts().then((result) => {
+    API.getNewsBlog().then((result) => {
       this.setState({
         posts: result,
+      });
+    });
+    API.getComments().then((result) => {
+      this.setState({
+        comments: result,
       });
     });
   };
@@ -59,11 +65,15 @@ class BlogPost extends Component {
   };
 
   saveToApiPost = () => {
-    axios
-      .post("http://localhost:3004/posts", this.state.formSave)
-      .then((res) => {
-        console.log("berhasil disimpan", res);
-      });
+    API.postNewBlog(this.state.formSave).then((result) => {
+      // console.log("berhasil disimpan", result);
+      this.getAllPosts();
+    });
+    // axios
+    //   .post("http://localhost:3004/posts", this.state.formSave)
+    //   .then((res) => {
+    //     console.log("berhasil disimpan", res);
+    //   });
   };
 
   updateToApiPost = () => {
@@ -129,6 +139,13 @@ class BlogPost extends Component {
             />
           );
         })}
+        {/* {this.state.comments.map((comment) => {
+          return (
+            <p>
+              {comment.name} - {comment.email}
+            </p>
+          );
+        })} */}
       </Fragment>
     );
   }

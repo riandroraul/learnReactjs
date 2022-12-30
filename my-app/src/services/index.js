@@ -1,25 +1,17 @@
-import axios from "axios";
+import Get from "./Get";
+import Post from "./Post";
 
-const base_url = "http://localhost:3004";
+// post
+const postNewBlog = (data) => Post("posts", false, data);
 
-const Get = (path) => {
-  const promise = new Promise((resolve, reject) => {
-    axios.get(`${base_url}/${path}`).then(
-      (res) => {
-        resolve(res.data);
-      },
-      (err) => {
-        reject(err);
-      }
-    );
-  });
-  return promise;
-};
-
-const getBlogPosts = () => Get("posts?_sort=id&_order=desc");
+// get
+const getNewsBlog = () => Get("posts?_sort=id&_order=desc", false);
+const getComments = () => Get("comments", true);
 
 const API = {
-  getBlogPosts,
+  getNewsBlog,
+  getComments,
+  postNewBlog,
 };
 
 export default API;
