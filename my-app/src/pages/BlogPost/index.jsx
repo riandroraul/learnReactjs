@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { Component, Fragment } from "react";
 import "../../Assets/css/blogpost.css";
 import Post from "./Post";
@@ -19,9 +18,14 @@ class BlogPost extends Component {
   };
 
   handleDelete = (data) => {
-    axios.delete(`http://localhost:3004/posts/${data}`).then((res) => {
+    API.deleteBlog(data).then((res) => {
+      console.log("berhasil dihpaus", res);
       this.getAllPosts();
     });
+
+    /* axios.delete(`http://localhost:3004/posts/${data}`).then((res) => {
+      this.getAllPosts();
+    }); */
   };
 
   getAllPosts = () => {
@@ -77,15 +81,19 @@ class BlogPost extends Component {
   };
 
   updateToApiPost = () => {
-    axios
-      .put(
-        `http://localhost:3004/posts/${this.state.formSave.id}`,
-        this.state.formSave
-      )
-      .then((res) => {
-        console.log("berhasil diubah", res);
-        this.getAllPosts();
-      });
+    API.updateBlog(this.state.formSave, this.state.formSave.id).then((res) => {
+      this.getAllPosts();
+      console.log("berhasil diubah", res);
+    });
+    // axios
+    //   .put(
+    //     `http://localhost:3004/posts/${this.state.formSave.id}`,
+    //     this.state.formSave
+    //   )
+    //   .then((res) => {
+    //     console.log("berhasil diubah", res);
+    //     this.getAllPosts();
+    //   });
   };
 
   onSubmit = () => {
