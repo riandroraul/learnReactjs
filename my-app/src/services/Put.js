@@ -2,9 +2,9 @@ import axios from "axios";
 import { base_url, online_url } from "./config";
 
 // put data
-const Put = (path, root, data, id) => {
+const Put = (path, root, data) => {
   const promise = new Promise((resolve, reject) => {
-    axios.put(`${root ? online_url : base_url}/${path}/${id}`, data).then(
+    axios.put(`${root ? online_url : base_url}/${path}`, data).then(
       (res) => {
         resolve(res.data);
       },

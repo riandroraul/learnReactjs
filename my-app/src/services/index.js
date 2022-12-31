@@ -11,11 +11,10 @@ const getNewsBlog = () => Get("posts?_sort=id&_order=desc", false);
 const getComments = () => Get("comments", true);
 
 // update
-
-const updateBlog = (data, id) => Put("posts", false, data, id);
+const updateBlog = (data, id) => Put(`posts/${id}`, false, data);
 
 // delete
-const deleteBlog = (id) => Delete("posts", false, id);
+const deleteBlog = (id) => Delete(`posts/${id}`, false);
 
 const API = {
   getNewsBlog,
