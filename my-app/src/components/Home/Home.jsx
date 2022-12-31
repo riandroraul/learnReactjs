@@ -8,6 +8,7 @@ import DetailPost from "../../pages/BlogPost/DetailPost";
 import ProtectedRoute from "../../Routes/Protected";
 import LifeCycleComp from "../LifeCycleComp";
 import GlobalProvider from "../../context/context";
+import Hooks from "../../pages/Hooks";
 
 class Home extends Component {
   render() {
@@ -27,6 +28,7 @@ class Home extends Component {
           <Route path="/product" element={<Product />} />
           <Route path="/detail-post/:postId" element={<DetailPost />} />
           <Route path="/lifecycle" element={<LifeCycleComp />} />
+          <Route path="/hooks" element={<Hooks />} />
         </Routes>
       </BrowserRouter>
     );
