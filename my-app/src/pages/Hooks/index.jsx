@@ -1,4 +1,5 @@
-import React from "react";
+import React, { Component } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import "../../Assets/css/hooks.css";
 
@@ -13,6 +14,18 @@ import "../../Assets/css/hooks.css";
 //     });
 //   };
 
+//   componentDidMount() {
+//     document.title = `title changed ${this.state.count}`;
+//   }
+
+//   componentDidUpdate() {
+//     document.title = `title changed ${this.state.count}`;
+//   }
+
+//   componentWillUnmount() {
+//     document.title = "React App";
+//   }
+
 //   render() {
 //     return (
 //       <div className="p-hooks">
@@ -25,6 +38,13 @@ import "../../Assets/css/hooks.css";
 
 const Hooks = () => {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `title changed = ${count}`;
+    return () => {
+      document.title = `React App`;
+    };
+  });
   return (
     <div className="p-hooks">
       <p>nilai saat ini adalah = {count}</p>
